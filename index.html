@@ -2,16 +2,18 @@
 <html lang="pt-BR">
 
 <head>
+
 <meta charset="UTF-8">
+
 <title>Frases em Português</title>
 
 <style>
 
 body{
     font-family: Arial, sans-serif;
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 20px;
+    max-width:900px;
+    margin:40px auto;
+    padding:20px;
     background:#f5f5f5;
 }
 
@@ -23,39 +25,48 @@ h1{
     background:white;
     border-radius:12px;
     padding:20px;
-    margin-bottom:30px;
+    margin-bottom:25px;
     box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+.linha{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:20px;
+}
+
+.texto{
+    flex:1;
+    line-height:1.7;
 }
 
 .portugues{
     font-size:22px;
     font-weight:bold;
-    line-height:1.6;
 }
 
 .ingles{
-    margin-top:20px;
-    padding-top:15px;
+    margin-top:18px;
+    padding-top:18px;
     border-top:2px solid #ddd;
-    line-height:1.8;
 }
 
 .vocabulario{
-    margin-top:15px;
-    color:#444;
+    margin-top:12px;
+    color:#555;
     font-size:15px;
 }
 
 button{
-    margin-top:15px;
-    margin-right:10px;
-    padding:10px 18px;
+    white-space:nowrap;
+    padding:8px 14px;
     border:none;
     border-radius:8px;
     background:#2d7ff9;
     color:white;
     cursor:pointer;
-    font-size:15px;
+    font-size:14px;
 }
 
 button:hover{
@@ -72,38 +83,50 @@ button:hover{
 
 <div class="frase">
 
-<div class="portugues" id="pt1">
-Meu nome é Anna.<br>
-Eu sou do Canadá.
-</div>
+    <div class="linha">
 
-<button onclick="copiar('pt1',this)">
-📋 Copiar Português
-</button>
+        <div class="texto portugues" id="pt1">
+            Meu nome é Anna.<br>
+            Eu sou do Canadá.
+        </div>
 
-<div class="ingles">
+        <button onclick="copiar('pt1',this)">
+            📋 Copiar
+        </button>
 
-<div id="en1">
-My name is Anna.<br>
-I am from Canada.
-</div>
+    </div>
 
-<div class="vocabulario">
+    <div class="ingles">
 
-Meu nome = My name<br>
-É = is<br>
-Eu = I<br>
-Sou = am<br>
-Do = from<br>
-Canadá = Canada
+        <div class="linha">
 
-</div>
+            <div class="texto">
 
-<button onclick="copiarTraducao(this)">
-📋 Copiar Inglês
-</button>
+                <div id="en1">
+                    My name is Anna.<br>
+                    I am from Canada.
+                </div>
 
-</div>
+                <div class="vocabulario">
+
+                    Meu nome = My name<br>
+                    É = is<br>
+                    Eu = I<br>
+                    Sou = am<br>
+                    Do = from<br>
+                    Canadá = Canada
+
+                </div>
+
+            </div>
+
+            <button onclick="copiarTraducao(this)">
+                📋 Copiar
+            </button>
+
+        </div>
+
+    </div>
 
 </div>
 
@@ -123,7 +146,7 @@ function copiarTraducao(botao){
 
     const bloco=botao.parentElement;
 
-    const texto=bloco.children[0].innerText;
+    const texto=bloco.querySelector("#en1").innerText;
 
     navigator.clipboard.writeText(texto);
 
@@ -135,7 +158,7 @@ function feedback(botao){
 
     const original=botao.innerHTML;
 
-    botao.innerHTML="✅ Copiado!";
+    botao.innerHTML="✅";
 
     setTimeout(()=>{
         botao.innerHTML=original;
@@ -146,4 +169,5 @@ function feedback(botao){
 </script>
 
 </body>
+
 </html>
