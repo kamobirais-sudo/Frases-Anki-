@@ -7,6 +7,7 @@
 <title>Frases</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -15,8 +16,8 @@
 
 body{
     font-family:Arial, Helvetica, sans-serif;
-    background:#f5f5f5;
-    padding:40px 20px;
+    background:#f4f4f4;
+    padding:40px;
 }
 
 .container{
@@ -24,54 +25,39 @@ body{
     margin:auto;
 }
 
-h1{
-    text-align:center;
-    margin-bottom:40px;
-}
-
 .card{
-    background:#fff;
-    border-radius:12px;
-    box-shadow:0 3px 10px rgba(0,0,0,.08);
+    background:white;
+    border:1px solid #dcdcdc;
+    border-radius:10px;
     margin-bottom:30px;
     overflow:hidden;
 }
 
-.card-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background:#ececec;
-    padding:14px 20px;
-    font-weight:bold;
+.area{
+    position:relative;
+    padding:20px;
 }
 
-button{
-    background:#2563eb;
-    color:white;
-    border:none;
-    border-radius:6px;
-    padding:8px 18px;
+.copy{
+    position:absolute;
+    top:20px;
+    right:20px;
+    padding:8px 16px;
     cursor:pointer;
-    font-size:14px;
 }
 
-button:hover{
-    background:#1d4ed8;
-}
-
-.content{
-    padding:24px;
-    white-space:pre-wrap;
+.texto{
+    white-space:pre-line;
+    padding-right:100px;
     line-height:1.8;
     font-size:18px;
 }
 
 hr{
-    margin:22px 0;
     border:none;
-    border-top:2px dashed #cfcfcf;
+    border-top:1px solid #dddddd;
 }
+
 </style>
 
 </head>
@@ -79,98 +65,144 @@ hr{
 
 <div class="container">
 
-<h1>Frases</h1>
+    <!-- FRASE 1 -->
 
-<!-- =================== FRASE 1 =================== -->
+    <div class="card">
 
-<div class="card">
+        <div class="area">
 
-    <div class="card-header">
-        <span>Frase 1</span>
-        <button onclick="copiar('frase1', this)">Copiar</button>
-    </div>
+            <button class="copy" onclick="copiarPT(this)">
+                Copiar
+            </button>
 
-    <div class="content" id="frase1">
+            <div class="texto pt">
 Meu nome é Anna. Eu sou do Canadá.
+            </div>
 
-----------------------------
+        </div>
 
+        <hr>
+
+        <div class="area">
+
+            <button class="copy" onclick="copiarEN(this)">
+                Copiar
+            </button>
+
+            <div class="texto en">
 My name is Anna. I am from Canada.
 
 Meu nome = my name
 É = is
 Eu = I
 Sou = am
+            </div>
+
+        </div>
+
     </div>
 
-</div>
 
-<!-- =================== FRASE 2 =================== -->
 
-<div class="card">
+    <!-- FRASE 2 -->
 
-    <div class="card-header">
-        <span>Frase 2</span>
-        <button onclick="copiar('frase2', this)">Copiar</button>
-    </div>
+    <div class="card">
 
-    <div class="content" id="frase2">
-Eu tenho um irmão. Ele é médico.
+        <div class="area">
 
-----------------------------
+            <button class="copy" onclick="copiarPT(this)">
+                Copiar
+            </button>
 
-I have a brother. He is a doctor.
+            <div class="texto pt">
+Eu sou professor. Minha irmã é médica.
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="area">
+
+            <button class="copy" onclick="copiarEN(this)">
+                Copiar
+            </button>
+
+            <div class="texto en">
+I am a teacher. My sister is a doctor.
 
 Eu = I
-Tenho = have
-Um = a
-Irmão = brother
-Ele = he
-É = is
-Médico = doctor
-    </div>
-
-</div>
-
-<!-- =================== FRASE 3 =================== -->
-
-<div class="card">
-
-    <div class="card-header">
-        <span>Frase 3</span>
-        <button onclick="copiar('frase3', this)">Copiar</button>
-    </div>
-
-    <div class="content" id="frase3">
-Esta é minha professora.
-
-----------------------------
-
-This is my teacher.
-
-Esta = this
-É = is
+Sou = am
+Professor = teacher
 Minha = my
-Professora = teacher
+Irmã = sister
+É = is
+Médica = doctor
+            </div>
+
+        </div>
+
     </div>
 
-</div>
+
+
+    <!-- FRASE 3 -->
+
+    <div class="card">
+
+        <div class="area">
+
+            <button class="copy" onclick="copiarPT(this)">
+                Copiar
+            </button>
+
+            <div class="texto pt">
+Este é meu pai. Aquela é minha mãe.
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="area">
+
+            <button class="copy" onclick="copiarEN(this)">
+                Copiar
+            </button>
+
+            <div class="texto en">
+This is my father. That is my mother.
+
+Este = this
+É = is
+Meu = my
+Pai = father
+Aquela = that
+Minha = my
+Mãe = mother
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
 <script>
 
-function copiar(id, botao){
+function copiarPT(botao){
 
-    const texto = document.getElementById(id).innerText;
+    const texto = botao.parentElement.querySelector(".pt").innerText;
 
     navigator.clipboard.writeText(texto);
 
-    botao.innerText = "Copiado!";
+}
 
-    setTimeout(function(){
-        botao.innerText = "Copiar";
-    },1500);
+function copiarEN(botao){
+
+    const texto = botao.parentElement.querySelector(".en").innerText;
+
+    navigator.clipboard.writeText(texto);
 
 }
 
