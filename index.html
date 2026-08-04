@@ -4,7 +4,6 @@
 <head>
 
 <meta charset="UTF-8">
-
 <title>Frases em Português</title>
 
 <style>
@@ -19,6 +18,7 @@ body{
 
 h1{
     text-align:center;
+    margin-bottom:40px;
 }
 
 .frase{
@@ -67,6 +67,7 @@ button{
     color:white;
     cursor:pointer;
     font-size:14px;
+    transition:.2s;
 }
 
 button:hover{
@@ -81,13 +82,17 @@ button:hover{
 
 <h1>Frases em Português</h1>
 
+<!-- FRASE 1 -->
+
 <div class="frase">
 
     <div class="linha">
 
         <div class="texto portugues" id="pt1">
+
             Meu nome é Anna.<br>
             Eu sou do Canadá.
+
         </div>
 
         <button onclick="copiar('pt1',this)">
@@ -103,8 +108,10 @@ button:hover{
             <div class="texto">
 
                 <div id="en1">
+
                     My name is Anna.<br>
                     I am from Canada.
+
                 </div>
 
                 <div class="vocabulario">
@@ -120,7 +127,7 @@ button:hover{
 
             </div>
 
-            <button onclick="copiarTraducao(this)">
+            <button onclick="copiarTraducao('en1',this)">
                 📋 Copiar
             </button>
 
@@ -134,7 +141,7 @@ button:hover{
 
 function copiar(id,botao){
 
-    const texto=document.getElementById(id).innerText;
+    const texto = document.getElementById(id).innerText;
 
     navigator.clipboard.writeText(texto);
 
@@ -142,11 +149,9 @@ function copiar(id,botao){
 
 }
 
-function copiarTraducao(botao){
+function copiarTraducao(id,botao){
 
-    const bloco=botao.parentElement;
-
-    const texto=bloco.querySelector("#en1").innerText;
+    const texto = document.getElementById(id).innerText;
 
     navigator.clipboard.writeText(texto);
 
@@ -156,12 +161,14 @@ function copiarTraducao(botao){
 
 function feedback(botao){
 
-    const original=botao.innerHTML;
+    const original = botao.innerHTML;
 
-    botao.innerHTML="✅";
+    botao.innerHTML = "✅ Copiado!";
 
-    setTimeout(()=>{
-        botao.innerHTML=original;
+    setTimeout(function(){
+
+        botao.innerHTML = original;
+
     },1500);
 
 }
