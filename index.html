@@ -1,173 +1,136 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
 <meta charset="UTF-8">
-<title>Frases em Português</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Frases para copiar</title>
 
 <style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
 body{
-    font-family: Arial, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f4f4f4;
+    color:#222;
+    padding:40px 20px;
+}
+
+.container{
     max-width:900px;
-    margin:40px auto;
-    padding:20px;
-    background:#f5f5f5;
+    margin:auto;
 }
 
 h1{
     text-align:center;
-    margin-bottom:40px;
+    margin-bottom:35px;
 }
 
-.frase{
+.card{
     background:white;
-    border-radius:12px;
-    padding:20px;
-    margin-bottom:25px;
-    box-shadow:0 2px 8px rgba(0,0,0,.1);
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+    margin-bottom:35px;
+    overflow:hidden;
 }
 
-.linha{
+.header{
     display:flex;
     justify-content:space-between;
-    align-items:flex-start;
-    gap:20px;
+    align-items:center;
+    background:#eeeeee;
+    padding:12px 18px;
 }
 
-.texto{
-    flex:1;
-    line-height:1.7;
-}
-
-.portugues{
-    font-size:22px;
-    font-weight:bold;
-}
-
-.ingles{
-    margin-top:18px;
-    padding-top:18px;
-    border-top:2px solid #ddd;
-}
-
-.vocabulario{
-    margin-top:12px;
-    color:#555;
-    font-size:15px;
+.header h2{
+    font-size:18px;
 }
 
 button{
-    white-space:nowrap;
-    padding:8px 14px;
     border:none;
-    border-radius:8px;
-    background:#2d7ff9;
+    background:#2563eb;
     color:white;
+    padding:8px 16px;
+    border-radius:6px;
     cursor:pointer;
     font-size:14px;
-    transition:.2s;
 }
 
 button:hover{
-    background:#165ec9;
+    background:#1d4ed8;
 }
 
+.content{
+    padding:20px;
+    white-space:pre-wrap;
+    line-height:1.8;
+    font-size:18px;
+}
+
+.divisor{
+    border:none;
+    border-top:2px dashed #ccc;
+    margin:30px 0;
+}
 </style>
 
 </head>
-
 <body>
 
-<h1>Frases em Português</h1>
+<div class="container">
 
-<!-- FRASE 1 -->
+<h1>Frases</h1>
 
-<div class="frase">
+<!-- ========================= FRASE 1 ========================= -->
 
-    <div class="linha">
+<div class="card">
 
-        <div class="texto portugues" id="pt1">
-
-            Meu nome é Anna.<br>
-            Eu sou do Canadá.
-
-        </div>
-
-        <button onclick="copiar('pt1',this)">
-            📋 Copiar
-        </button>
-
+    <div class="header">
+        <h2>Português</h2>
+        <button onclick="copiar('pt1', this)">Copiar</button>
     </div>
 
-    <div class="ingles">
-
-        <div class="linha">
-
-            <div class="texto">
-
-                <div id="en1">
-
-                    My name is Anna.<br>
-                    I am from Canada.
-
-                </div>
-
-                <div class="vocabulario">
-
-                    Meu nome = My name<br>
-                    É = is<br>
-                    Eu = I<br>
-                    Sou = am<br>
-                    Do = from<br>
-                    Canadá = Canada
-
-                </div>
-
-            </div>
-
-            <button onclick="copiarTraducao('en1',this)">
-                📋 Copiar
-            </button>
-
-        </div>
-
-    </div>
+    <div class="content" id="pt1">Meu nome é Anna. Eu sou do Canadá.</div>
 
 </div>
 
+<hr class="divisor">
+
+<div class="card">
+
+    <div class="header">
+        <h2>Inglês + Vocabulário</h2>
+        <button onclick="copiar('en1', this)">Copiar</button>
+    </div>
+
+    <div class="content" id="en1">My name is Anna. I am from Canada.
+
+Meu nome = my name
+É = is
+Eu = I
+Sou = am</div>
+
+</div>
+
+<!-- =========================================================== -->
+
 <script>
 
-function copiar(id,botao){
+function copiar(id, botao){
 
     const texto = document.getElementById(id).innerText;
 
     navigator.clipboard.writeText(texto);
 
-    feedback(botao);
-
-}
-
-function copiarTraducao(id,botao){
-
-    const texto = document.getElementById(id).innerText;
-
-    navigator.clipboard.writeText(texto);
-
-    feedback(botao);
-
-}
-
-function feedback(botao){
-
-    const original = botao.innerHTML;
-
-    botao.innerHTML = "✅ Copiado!";
+    botao.innerText = "Copiado!";
 
     setTimeout(function(){
 
-        botao.innerHTML = original;
+        botao.innerText = "Copiar";
 
     },1500);
 
@@ -176,5 +139,4 @@ function feedback(botao){
 </script>
 
 </body>
-
 </html>
