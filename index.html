@@ -1,32 +1,65 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
-
 <meta charset="UTF-8">
-
-<title>Frases</title>
+<title>Frases em Português</title>
 
 <style>
 
 body{
-    font-family: Arial;
-    max-width:700px;
-    margin:auto;
-    padding:40px;
+    font-family: Arial, sans-serif;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background:#f5f5f5;
+}
+
+h1{
+    text-align:center;
 }
 
 .frase{
-    border:1px solid #ddd;
-    padding:15px;
-    margin-bottom:15px;
-    border-radius:10px;
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:30px;
+    box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+.portugues{
+    font-size:22px;
+    font-weight:bold;
+    line-height:1.6;
+}
+
+.ingles{
+    margin-top:20px;
+    padding-top:15px;
+    border-top:2px solid #ddd;
+    line-height:1.8;
+}
+
+.vocabulario{
+    margin-top:15px;
+    color:#444;
+    font-size:15px;
 }
 
 button{
-    margin-top:10px;
-    padding:8px 15px;
+    margin-top:15px;
+    margin-right:10px;
+    padding:10px 18px;
+    border:none;
+    border-radius:8px;
+    background:#2d7ff9;
+    color:white;
     cursor:pointer;
+    font-size:15px;
+}
+
+button:hover{
+    background:#165ec9;
 }
 
 </style>
@@ -35,54 +68,82 @@ button{
 
 <body>
 
-<h1>Minhas Frases</h1>
+<h1>Frases em Português</h1>
 
 <div class="frase">
 
-<p id="f1">
+<div class="portugues" id="pt1">
+Meu nome é Anna.<br>
+Eu sou do Canadá.
+</div>
 
-Bom dia!
-
-</p>
-
-<button onclick="copiar('f1')">
-
-📋 Copiar
-
+<button onclick="copiar('pt1',this)">
+📋 Copiar Português
 </button>
+
+<div class="ingles">
+
+<div id="en1">
+My name is Anna.<br>
+I am from Canada.
+</div>
+
+<div class="vocabulario">
+
+Meu nome = My name<br>
+É = is<br>
+Eu = I<br>
+Sou = am<br>
+Do = from<br>
+Canadá = Canada
 
 </div>
 
-<div class="frase">
-
-<p id="f2">
-
-Como você está?
-
-</p>
-
-<button onclick="copiar('f2')">
-
-📋 Copiar
-
+<button onclick="copiarTraducao(this)">
+📋 Copiar Inglês
 </button>
+
+</div>
 
 </div>
 
 <script>
 
-function copiar(id){
+function copiar(id,botao){
 
-const texto=document.getElementById(id).innerText;
+    const texto=document.getElementById(id).innerText;
 
-navigator.clipboard.writeText(texto);
+    navigator.clipboard.writeText(texto);
 
-alert("Frase copiada!");
+    feedback(botao);
+
+}
+
+function copiarTraducao(botao){
+
+    const bloco=botao.parentElement;
+
+    const texto=bloco.children[0].innerText;
+
+    navigator.clipboard.writeText(texto);
+
+    feedback(botao);
+
+}
+
+function feedback(botao){
+
+    const original=botao.innerHTML;
+
+    botao.innerHTML="✅ Copiado!";
+
+    setTimeout(()=>{
+        botao.innerHTML=original;
+    },1500);
 
 }
 
 </script>
 
 </body>
-
 </html>
