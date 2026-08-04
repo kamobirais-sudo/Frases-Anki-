@@ -26,40 +26,49 @@ body{
 }
 
 .card{
-    background:white;
+    background:#fff;
     border:1px solid #dcdcdc;
     border-radius:10px;
-    margin-bottom:30px;
+    margin-bottom:25px;
     overflow:hidden;
 }
 
-.area{
-    position:relative;
+.linha{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:20px;
     padding:20px;
 }
 
-.copy{
-    position:absolute;
-    top:20px;
-    right:20px;
-    padding:8px 16px;
-    cursor:pointer;
-}
-
 .texto{
+    flex:1;
     white-space:pre-line;
-    padding-right:100px;
     line-height:1.8;
     font-size:18px;
 }
 
+button{
+    width:90px;
+    padding:10px;
+    cursor:pointer;
+    border:none;
+    border-radius:6px;
+    background:#2d7ef7;
+    color:white;
+    font-size:15px;
+}
+
+button:hover{
+    background:#1c64d1;
+}
+
 hr{
     border:none;
-    border-top:1px solid #dddddd;
+    border-top:1px solid #ddd;
 }
 
 </style>
-
 </head>
 <body>
 
@@ -69,25 +78,21 @@ hr{
 
     <div class="card">
 
-        <div class="area">
-
-            <button class="copy" onclick="copiarPT(this)">
-                Copiar
-            </button>
+        <div class="linha">
 
             <div class="texto pt">
 Meu nome é Anna. Eu sou do Canadá.
             </div>
 
+            <button onclick="copiarPT(this)">
+                Copiar
+            </button>
+
         </div>
 
         <hr>
 
-        <div class="area">
-
-            <button class="copy" onclick="copiarEN(this)">
-                Copiar
-            </button>
+        <div class="linha">
 
             <div class="texto en">
 My name is Anna. I am from Canada.
@@ -97,6 +102,10 @@ Meu nome = my name
 Eu = I
 Sou = am
             </div>
+
+            <button onclick="copiarEN(this)">
+                Copiar
+            </button>
 
         </div>
 
@@ -108,25 +117,21 @@ Sou = am
 
     <div class="card">
 
-        <div class="area">
-
-            <button class="copy" onclick="copiarPT(this)">
-                Copiar
-            </button>
+        <div class="linha">
 
             <div class="texto pt">
 Eu sou professor. Minha irmã é médica.
             </div>
 
+            <button onclick="copiarPT(this)">
+                Copiar
+            </button>
+
         </div>
 
         <hr>
 
-        <div class="area">
-
-            <button class="copy" onclick="copiarEN(this)">
-                Copiar
-            </button>
+        <div class="linha">
 
             <div class="texto en">
 I am a teacher. My sister is a doctor.
@@ -140,6 +145,10 @@ Irmã = sister
 Médica = doctor
             </div>
 
+            <button onclick="copiarEN(this)">
+                Copiar
+            </button>
+
         </div>
 
     </div>
@@ -150,25 +159,21 @@ Médica = doctor
 
     <div class="card">
 
-        <div class="area">
-
-            <button class="copy" onclick="copiarPT(this)">
-                Copiar
-            </button>
+        <div class="linha">
 
             <div class="texto pt">
 Este é meu pai. Aquela é minha mãe.
             </div>
 
+            <button onclick="copiarPT(this)">
+                Copiar
+            </button>
+
         </div>
 
         <hr>
 
-        <div class="area">
-
-            <button class="copy" onclick="copiarEN(this)">
-                Copiar
-            </button>
+        <div class="linha">
 
             <div class="texto en">
 This is my father. That is my mother.
@@ -181,6 +186,10 @@ Aquela = that
 Minha = my
 Mãe = mother
             </div>
+
+            <button onclick="copiarEN(this)">
+                Copiar
+            </button>
 
         </div>
 
